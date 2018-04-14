@@ -1,6 +1,7 @@
 # Windows Programming Laboratory Work #5
 ## Snake game
-###Team: Bantus Vladislav, Chirosca Ariadna, Gore Polina
+### Team: Bantus Vladislav, Chirosca Ariadna, Gore Polina
+
 During this laboratory work, we decided to create a game, known as Snake.
 ### Tasks:
 * Snake animation
