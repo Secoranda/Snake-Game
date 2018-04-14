@@ -2,7 +2,8 @@
 ## Snake game
 ### Team: Bantus Vladislav, Chirosca Ariadna, Gore Polina
 
-During this laboratory work, we decided to create a game, known as Snake.
+During this laboratory work, we decided to create a game, known as Snake, a funny game that you can play when you're bored in order to improve your attention.
+
 ### Tasks:
 * Snake animation
 * Snake movement, using keyboard input
@@ -12,3 +13,5 @@ During this laboratory work, we decided to create a game, known as Snake.
 * Game design 
 * Add music
 * Pause/Restart commands (keyboard input)
+* Add levels
+
