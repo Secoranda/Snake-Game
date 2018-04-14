@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PPE__Lab_5__
 {
@@ -20,6 +21,7 @@ namespace PPE__Lab_5__
         public List<Circle> Body { get; set; }
         public bool Dead { get; set; }
         public Direction SnakeDirection { get; set; }
+        public bool foodBonus { get; set; }
 
         public Snake(int speed, Direction direction)
         {
@@ -79,12 +81,27 @@ namespace PPE__Lab_5__
                     }
                     
                     //Detect collision with food 
-                    if (this.Body[0].X == food.X && this.Body[0].Y == food.Y)
+                   
+                    if (!foodBonus && this.Body[0].X == food.X && this.Body[0].Y == food.Y)
                     {
                         this.Eat(food);
                         return true;
                     } 
 
+                   else if(foodBonus)
+                    {
+                        if((this.Body[0].X == food.X && this.Body[0].Y == food.Y) ||
+                            (this.Body[0].X == food.X + 1 && this.Body[0].Y == food.Y + 1) ||
+                            (this.Body[0].X == food.X && this.Body[0].Y == food.Y + 1)||
+                            (this.Body[0].X == food.X + 1 && this.Body[0].Y == food.Y))
+                        {
+                            food.X = Body[0].X;
+                            food.Y = Body[0].Y;
+                            this.Eat(food);
+                            return true;
+                        }
+                  
+                    }
                 }
                 else
                 {

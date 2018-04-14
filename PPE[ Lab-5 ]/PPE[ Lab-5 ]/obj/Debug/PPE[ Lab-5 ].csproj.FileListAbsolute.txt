@@ -8,3 +8,13 @@ C:\Users\Vladdd\Desktop\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].csproj.
 C:\Users\Vladdd\Desktop\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].csproj.CoreCompileInputs.cache
 C:\Users\Vladdd\Desktop\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].exe
 C:\Users\Vladdd\Desktop\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].pdb
+F:\univer\WP\PPE[ Lab-5 ]\PPE[ Lab-5 ]\bin\Debug\PPE[ Lab-5 ].exe.config
+F:\univer\WP\PPE[ Lab-5 ]\PPE[ Lab-5 ]\bin\Debug\PPE[ Lab-5 ].exe
+F:\univer\WP\PPE[ Lab-5 ]\PPE[ Lab-5 ]\bin\Debug\PPE[ Lab-5 ].pdb
+F:\univer\WP\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].csprojResolveAssemblyReference.cache
+F:\univer\WP\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE__Lab_5__.Form1.resources
+F:\univer\WP\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE__Lab_5__.Properties.Resources.resources
+F:\univer\WP\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].csproj.GenerateResource.Cache
+F:\univer\WP\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].csproj.CoreCompileInputs.cache
+F:\univer\WP\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].exe
+F:\univer\WP\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].pdb
