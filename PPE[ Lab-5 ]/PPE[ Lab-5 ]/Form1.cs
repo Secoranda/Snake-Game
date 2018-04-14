@@ -11,24 +11,24 @@ using System.Windows.Forms;
 
 namespace PPE__Lab_5__
 {
-
     public partial class Form1 : Form
     {
-
         private Snake snake;
 
         private Direction startDirection;
         private int circleWidth;
         private int circleHeight;
         private int speed;
+        SolidBrush foodBrush;
 
         private Circle food;
 
         private int gridWidth;
         private int gridHeight;
+        int score = 0, bonus = 0;
 
-
-        SoundPlayer snakaEats = new SoundPlayer();
+        SoundPlayer snakaEats = new SoundPlayer(@"crunch.wav");
+        SoundPlayer startMusic = new SoundPlayer(@"bckgMusic.wav");
 
         public Form1()
         {
@@ -42,37 +42,47 @@ namespace PPE__Lab_5__
             gridWidth = this.Canvas.Width / circleWidth;
             gridHeight = this.Canvas.Height / circleHeight;
 
-            this.RulesLabel.Text = "Press P\nfor pausing\nthe GAME";
+            this.RulesLabel.Text = "Press P\nfor pausing \nthe GAME";
+            this.RulesLabel.Font = new Font("Ravie", 12, FontStyle.Bold);
+            this.DoubleBuffered = true;
+            startMusic.Play();
+        }
 
-
-
-            snakaEats.SoundLocation = "crunch.wav";
-
-
+        private void StartBtn_Click(object sender, EventArgs e)
+        {
+            MenuPanel.Dispose();
+            startMusic.Stop();
             Start();
         }
 
         public void Start()
         {
-
             // create new snake 
             snake = new Snake(speed, startDirection);
-            this.GameOverlabel.Visible = false;
+            this.GameOverlabel.Visible = false; 
             this.ScoreLabel.Text = "Score : " + snake.Body.Count;
+            this.ScoreLabel.Font= new Font("Ravie", 14, FontStyle.Bold);
             // create head of the snake and add it to body
             Circle head = new Circle(5,5,circleWidth,circleHeight);
             snake.Body.Add(head);
 
             GenerateFood();
-
         }
 
         public void GenerateFood()
         {
+            bonus = 0;
+            snake.foodBonus = false;
             Random random = new Random();
-
             food = new Circle(random.Next(0,gridWidth),random.Next(0,gridHeight),circleWidth,circleHeight);
+        }
 
+        public void GenerateBonusFood()
+        {
+            bonus = 10;
+            snake.foodBonus = true;
+            Random random = new Random();
+            food = new Circle(random.Next(0, gridWidth), random.Next(0, gridHeight), circleWidth*2, circleHeight*2);
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -80,8 +90,18 @@ namespace PPE__Lab_5__
             if (snake.Move(gridWidth, gridHeight, food)) // return true if snake get food
             {
                 snakaEats.Play();
-                GenerateFood();
-                this.ScoreLabel.Text = "Score : " + (snake.Body.Count - 1) * 10;
+                score += 10 + bonus;
+
+                if (snake.Body.Count % 5 == 0)
+                {
+                    GenerateBonusFood();
+                }
+                else
+                {
+                    GenerateFood();
+                }
+
+                this.ScoreLabel.Text = "Score : " + score;
 
                 // increase speed when snake eats 2 (apples)
                 if (snake.Body.Count % 2 == 0)
@@ -89,7 +109,7 @@ namespace PPE__Lab_5__
                     snake.Speed++;
                 }
             }
-            Canvas.Invalidate();            
+                Canvas.Invalidate();            
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -119,7 +139,6 @@ namespace PPE__Lab_5__
                 }
                 else
                 {
-
                     switch (e.KeyCode)
                     {
                         case Keys.Right:
@@ -139,7 +158,6 @@ namespace PPE__Lab_5__
                                 snake.SnakeDirection = Direction.Down;
                             break;
                     }
-
                 }
             }
         }
@@ -148,26 +166,34 @@ namespace PPE__Lab_5__
         {
             if (!snake.Dead)
             {
-                SolidBrush snakeBrush = new SolidBrush(Color.Blue); // Head Color
-                SolidBrush foodBrush = new SolidBrush(Color.Red); // Food Color
-
+                SolidBrush snakeBrush = new SolidBrush(Color.DarkBlue); // Head Color
+                if (!snake.foodBonus)
+                {
+                    foodBrush = new SolidBrush(Color.Red); // Food Color
+                    e.Graphics.FillEllipse(foodBrush,
+                        food.X * circleWidth, food.Y * circleHeight,
+                        food.Width, food.Height);
+                }
+                else
+                {
+                    foodBrush = new SolidBrush(Color.Gold); // Food Color
+                    e.Graphics.FillEllipse(foodBrush,
+                        food.X * circleWidth, food.Y * circleHeight,
+                        circleWidth * 2, circleHeight * 2);
+                }
+                
                 for (int i = 0; i < snake.Body.Count; i++)
                 {
                     if (i > 0)
                     {
-                        snakeBrush.Color = Color.DarkSlateGray; // Body Color
+                        snakeBrush.Color = Color.Blue; // Body Color
                     }
                     // Draw Snake
                     e.Graphics.FillEllipse(snakeBrush,
                         snake.Body[i].X*circleWidth,snake.Body[i].Y*circleHeight,
                         circleWidth,circleHeight);
 
-                    // Draw Food
-                    e.Graphics.FillEllipse(foodBrush,
-                        food.X * circleWidth, food.Y * circleHeight,
-                        circleWidth, circleHeight);
                 }
-
             }
             else
             {
@@ -175,11 +201,6 @@ namespace PPE__Lab_5__
                                           "\nPress Enter to Play Again !";
                 this.GameOverlabel.Visible = true;
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
