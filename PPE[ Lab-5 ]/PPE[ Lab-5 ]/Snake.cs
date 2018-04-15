@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace PPE__Lab_5__
@@ -21,22 +18,35 @@ namespace PPE__Lab_5__
         public List<Circle> Body { get; set; }
         public bool Dead { get; set; }
         public Direction SnakeDirection { get; set; }
-        public bool foodBonus { get; set; }
+        public bool FoodBonus { get; set; }
+		public List<Obstacle> Obstacles { get; set; }
 
-        public Snake(int speed, Direction direction)
+        public Snake(int speed, Direction direction, Level lvl)
         {
             Dead = false;
             Body = new List<Circle>();
 
             Speed = speed;
             SnakeDirection = direction;
-
+			Obstacles = new List<Obstacle>();
+			CreateObstacles(lvl);
         }
 
         public void Eat(Circle circle)
         {
             Body.Add(circle);
         }
+
+		public void CreateObstacles(Level lvl)
+		{
+			if (lvl != Level.Basic)
+				Obstacles.AddRange(new List<Obstacle> { new Obstacle(7, 7, 10, 100),
+				new Obstacle(20, 20, 10, 100), new Obstacle(30, 8, 10, 150),
+				new Obstacle(40, 18, 10, 150)});
+			if (lvl == Level.Hard)
+				Obstacles.AddRange(new List<Obstacle> { new Obstacle(15, 15, 10, 100),
+				new Obstacle(40, 3, 10, 300), new Obstacle(5, 21, 10, 100)});
+		}
 
         public bool Move(int gridWidth , int gridHeight , Circle food)
         {
@@ -64,12 +74,17 @@ namespace PPE__Lab_5__
                     
                     //Detect collission with form borders.
                     if (this.Body[i].X < 0 || this.Body[i].Y < 0
-                                       || this.Body[i].X >= gridWidth || this.Body[i].Y >= gridHeight)
+						|| this.Body[i].X >= gridWidth || this.Body[i].Y >= gridHeight)
                     {
                         this.Dead = true;
                     }
 
-                    
+					//Detect collision with Obstacles
+					foreach (var obs in Obstacles)
+					{
+						if (new Rectangle(obs.x, obs.y, obs.w/10, obs.h/16).Contains(Body[0].X, Body[0].Y))
+							Dead = true;
+					}
                     //Detect collission with snake body
                     for (int j = 1; j < this.Body.Count; j++)
                     {
@@ -81,14 +96,13 @@ namespace PPE__Lab_5__
                     }
                     
                     //Detect collision with food 
-                   
-                    if (!foodBonus && this.Body[0].X == food.X && this.Body[0].Y == food.Y)
+                    if (!FoodBonus && this.Body[0].X == food.X && this.Body[0].Y == food.Y)
                     {
                         this.Eat(food);
                         return true;
                     } 
 
-                   else if(foodBonus)
+                   else if(FoodBonus)
                     {
                         if((this.Body[0].X == food.X && this.Body[0].Y == food.Y) ||
                             (this.Body[0].X == food.X + 1 && this.Body[0].Y == food.Y + 1) ||
@@ -100,7 +114,6 @@ namespace PPE__Lab_5__
                             this.Eat(food);
                             return true;
                         }
-                  
                     }
                 }
                 else
@@ -113,8 +126,6 @@ namespace PPE__Lab_5__
 
             return false;
         }
-
-
 
     }
 }
