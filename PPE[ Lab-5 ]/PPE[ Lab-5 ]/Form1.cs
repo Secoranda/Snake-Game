@@ -62,6 +62,7 @@ namespace PPE__Lab_5__
 
 		public void Start()
         {
+			startMusic.Stop();
 			LevelPanel.Dispose();
 			GamePanel.Visible = true;
 
@@ -119,7 +120,7 @@ namespace PPE__Lab_5__
                 this.ScoreLabel.Text = "Score : " + score;
 
 				// increase speed when snake eats 2 (apples)
-				if (snake.Body.Count % 2 == 0)
+				if (snake.Body.Count % 5 == 0)
 				{
 					snake.Speed += 2;
 					timer.Interval = 1000 / snake.Speed;
@@ -208,7 +209,7 @@ namespace PPE__Lab_5__
 					if (lvl != Level.Basic)
 						foreach (var obst in snake.Obstacles)
 							e.Graphics.FillRectangle(new SolidBrush(Color.SaddleBrown),
-								obst.x * circleWidth, obst.y * circleHeight, obst.w, obst.h);
+								obst.x * circleWidth, obst.y * circleHeight, obst.w + 5, obst.h);
 				}
 				else
 				{
