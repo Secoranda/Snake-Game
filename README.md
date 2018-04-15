@@ -1,6 +1,6 @@
 # Windows Programming Laboratory Work #5
 ## Snake game
-### Team: Bantus Vladislav, Chirosca Ariadna, Gore Polina
+### Team: Bantus Vladislav, Chirosca Ariadna, Gore Polina, Cojocari Daniela
 
 During this laboratory work, we decided to create a game, known as Snake, a funny game that you can play when you're bored in order to improve your attention.
 
