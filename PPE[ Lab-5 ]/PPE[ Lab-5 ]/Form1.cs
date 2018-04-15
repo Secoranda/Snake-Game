@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
@@ -76,7 +76,7 @@ namespace PPE__Lab_5__
 			timer.Enabled = true;
 			timer.Interval = 1000 / snake.Speed;
 
-			this.RulesLabel.Text = "Press P to pause the GAME";
+			this.RulesLabel.Text = "Press P or SPACE \n to pause the GAME";
             this.ScoreLabel.Text = "Score : " + snake.Body.Count;
 			GameOverlabel.Visible = false;
 
@@ -132,7 +132,7 @@ namespace PPE__Lab_5__
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
 			// pauses the game at P key down event
-			if (e.KeyCode == Keys.P && this.timer.Enabled)
+			if (e.KeyCode == Keys.P && this.timer.Enabled || e.KeyCode == Keys.Space && this.timer.Enabled)
 				this.timer.Enabled = false;
 
 			// unpauses the game at any key down event
