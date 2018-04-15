@@ -76,7 +76,7 @@ namespace PPE__Lab_5__
 			timer.Enabled = true;
 			timer.Interval = 1000 / snake.Speed;
 
-			this.RulesLabel.Text = "Press P\nfor pausing \nthe GAME";
+			this.RulesLabel.Text = "Press P to pause the GAME";
             this.ScoreLabel.Text = "Score : " + snake.Body.Count;
 			GameOverlabel.Visible = false;
 
