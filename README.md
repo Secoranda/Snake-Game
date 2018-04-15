@@ -14,4 +14,4 @@ During this laboratory work, we decided to create a game, known as Snake, a funn
 * Add music
 * Pause/Restart commands (keyboard input)
 * Add levels
-
+* Speed increase after 5 points
