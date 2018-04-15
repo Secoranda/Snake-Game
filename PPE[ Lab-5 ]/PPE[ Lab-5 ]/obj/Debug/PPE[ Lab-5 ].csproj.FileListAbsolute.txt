@@ -18,3 +18,13 @@ F:\univer\WP\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].csproj.GenerateRes
 F:\univer\WP\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].csproj.CoreCompileInputs.cache
 F:\univer\WP\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].exe
 F:\univer\WP\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].pdb
+C:\Users\skdn\Desktop\UTM\Anul 2, sem. 2\WinProgLabs\Snake-Game\PPE[ Lab-5 ]\PPE[ Lab-5 ]\bin\Debug\PPE[ Lab-5 ].exe.config
+C:\Users\skdn\Desktop\UTM\Anul 2, sem. 2\WinProgLabs\Snake-Game\PPE[ Lab-5 ]\PPE[ Lab-5 ]\bin\Debug\PPE[ Lab-5 ].exe
+C:\Users\skdn\Desktop\UTM\Anul 2, sem. 2\WinProgLabs\Snake-Game\PPE[ Lab-5 ]\PPE[ Lab-5 ]\bin\Debug\PPE[ Lab-5 ].pdb
+C:\Users\skdn\Desktop\UTM\Anul 2, sem. 2\WinProgLabs\Snake-Game\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].csprojResolveAssemblyReference.cache
+C:\Users\skdn\Desktop\UTM\Anul 2, sem. 2\WinProgLabs\Snake-Game\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE__Lab_5__.Form1.resources
+C:\Users\skdn\Desktop\UTM\Anul 2, sem. 2\WinProgLabs\Snake-Game\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE__Lab_5__.Properties.Resources.resources
+C:\Users\skdn\Desktop\UTM\Anul 2, sem. 2\WinProgLabs\Snake-Game\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].csproj.GenerateResource.cache
+C:\Users\skdn\Desktop\UTM\Anul 2, sem. 2\WinProgLabs\Snake-Game\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].csproj.CoreCompileInputs.cache
+C:\Users\skdn\Desktop\UTM\Anul 2, sem. 2\WinProgLabs\Snake-Game\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].exe
+C:\Users\skdn\Desktop\UTM\Anul 2, sem. 2\WinProgLabs\Snake-Game\PPE[ Lab-5 ]\PPE[ Lab-5 ]\obj\Debug\PPE[ Lab-5 ].pdb

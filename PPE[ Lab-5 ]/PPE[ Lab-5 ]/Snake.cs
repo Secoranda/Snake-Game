@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Collections.Generic;
 
 namespace PPE__Lab_5__
 {
@@ -21,7 +16,7 @@ namespace PPE__Lab_5__
         public List<Circle> Body { get; set; }
         public bool Dead { get; set; }
         public Direction SnakeDirection { get; set; }
-        public bool foodBonus { get; set; }
+        public bool FoodBonus { get; set; }
 
         public Snake(int speed, Direction direction)
         {
@@ -30,7 +25,6 @@ namespace PPE__Lab_5__
 
             Speed = speed;
             SnakeDirection = direction;
-
         }
 
         public void Eat(Circle circle)
@@ -81,14 +75,13 @@ namespace PPE__Lab_5__
                     }
                     
                     //Detect collision with food 
-                   
-                    if (!foodBonus && this.Body[0].X == food.X && this.Body[0].Y == food.Y)
+                    if (!FoodBonus && this.Body[0].X == food.X && this.Body[0].Y == food.Y)
                     {
                         this.Eat(food);
                         return true;
                     } 
 
-                   else if(foodBonus)
+                   else if(FoodBonus)
                     {
                         if((this.Body[0].X == food.X && this.Body[0].Y == food.Y) ||
                             (this.Body[0].X == food.X + 1 && this.Body[0].Y == food.Y + 1) ||
@@ -100,7 +93,6 @@ namespace PPE__Lab_5__
                             this.Eat(food);
                             return true;
                         }
-                  
                     }
                 }
                 else
@@ -113,8 +105,6 @@ namespace PPE__Lab_5__
 
             return false;
         }
-
-
 
     }
 }
