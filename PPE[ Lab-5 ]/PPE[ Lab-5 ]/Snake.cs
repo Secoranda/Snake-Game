@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace PPE__Lab_5__
 {
@@ -17,20 +19,31 @@ namespace PPE__Lab_5__
         public bool Dead { get; set; }
         public Direction SnakeDirection { get; set; }
         public bool FoodBonus { get; set; }
+		public List<Obstacle> Obstacles { get; set; }
 
-        public Snake(int speed, Direction direction)
+        public Snake(int speed, Direction direction, Level lvl)
         {
             Dead = false;
             Body = new List<Circle>();
 
             Speed = speed;
             SnakeDirection = direction;
+			Obstacles = new List<Obstacle>();
+			CreateObstacles(lvl);
         }
 
         public void Eat(Circle circle)
         {
             Body.Add(circle);
         }
+
+		public void CreateObstacles(Level lvl)
+		{
+			if (lvl != Level.Basic)
+				Obstacles.AddRange(new List<Obstacle> { new Obstacle(5, 5, 10, 100),
+				new Obstacle(20, 25, 200, 10)});
+			//if (lvl == Level.Hard)
+		}
 
         public bool Move(int gridWidth , int gridHeight , Circle food)
         {
@@ -58,12 +71,15 @@ namespace PPE__Lab_5__
                     
                     //Detect collission with form borders.
                     if (this.Body[i].X < 0 || this.Body[i].Y < 0
-                                       || this.Body[i].X >= gridWidth || this.Body[i].Y >= gridHeight)
+						|| this.Body[i].X >= gridWidth || this.Body[i].Y >= gridHeight)
                     {
                         this.Dead = true;
                     }
 
-                    
+					//Detect collision with Obstacles
+					foreach (var obs in Obstacles)
+					{
+					}
                     //Detect collission with snake body
                     for (int j = 1; j < this.Body.Count; j++)
                     {

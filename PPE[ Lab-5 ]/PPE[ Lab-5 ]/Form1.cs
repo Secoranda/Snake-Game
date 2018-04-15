@@ -23,6 +23,7 @@ namespace PPE__Lab_5__
 		int score = 0, bonus = 0;
 
         SolidBrush foodBrush;
+		Pen pen = new Pen(new SolidBrush(Color.SaddleBrown), 10);
 
         SoundPlayer snakaEats = new SoundPlayer(@"crunch.wav");
         SoundPlayer startMusic = new SoundPlayer(@"bckgMusic.wav");
@@ -50,18 +51,21 @@ namespace PPE__Lab_5__
 		private void MediumLvlBtn_Click(object sender, EventArgs e)
 		{
 			lvl = Level.Medium;
+			Start();
 		}
 
 		private void HardLvlBtn_Click(object sender, EventArgs e)
 		{
 			lvl = Level.Hard;
+			Start();
 		}
 
 		public void Start()
         {
 			LevelPanel.Dispose();
 			GamePanel.Visible = true;
-			snake = new Snake(5, Direction.Down);
+
+			snake = new Snake(5, Direction.Down, lvl);
 
 			circleWidth = 16;
 			circleHeight = 16;
@@ -76,7 +80,7 @@ namespace PPE__Lab_5__
 			GameOverlabel.Visible = false;
 
 			// create head of the snake and add it to body
-			Circle head = new Circle(5, 5, circleWidth,circleHeight);
+			Circle head = new Circle(5, 5, circleWidth, circleHeight);
             snake.Body.Add(head);
 
             GenerateFood();
@@ -130,13 +134,14 @@ namespace PPE__Lab_5__
 			if (e.KeyCode == Keys.P && this.timer.Enabled)
 				this.timer.Enabled = false;
 
-			// unpauses the game at any input
+			// unpauses the game at any key down event
 			else if (!timer.Enabled)
 				timer.Enabled = true;
 
-            if (this.timer.Enabled) // Player can not change the snake direction when he pauses the game
+			// Player can not change the snake direction when he pauses the game
+			if (this.timer.Enabled)
             {
-				// restarts the game at any input
+				// restarts the game at any key down event
 				if (snake.Dead)
 					Start();
                 else
@@ -198,6 +203,12 @@ namespace PPE__Lab_5__
 						e.Graphics.FillEllipse(snakeBrush, snake.Body[i].X * circleWidth,
 							snake.Body[i].Y * circleHeight, circleWidth, circleHeight);
 					}
+
+					// draws obstacles 
+					if (lvl != Level.Basic)
+						foreach (var obst in snake.Obstacles)
+							e.Graphics.FillRectangle(new SolidBrush(Color.SaddleBrown),
+								obst.x * circleWidth, obst.y * circleHeight, obst.w, obst.h);
 				}
 				else
 				{

@@ -36,35 +36,22 @@
 			this.RulesLabel = new System.Windows.Forms.Label();
 			this.MenuPanel = new System.Windows.Forms.Panel();
 			this.StartBtn = new System.Windows.Forms.Button();
+			this.GamePanel = new System.Windows.Forms.Panel();
+			this.Canvas = new System.Windows.Forms.PictureBox();
 			this.LevelPanel = new System.Windows.Forms.Panel();
 			this.HardLvlBtn = new System.Windows.Forms.Button();
 			this.MediumLvlBtn = new System.Windows.Forms.Button();
 			this.BasicLvlBtn = new System.Windows.Forms.Button();
-			this.Canvas = new System.Windows.Forms.PictureBox();
-			this.GamePanel = new System.Windows.Forms.Panel();
-			((System.ComponentModel.ISupportInitialize)(this.Canvas)).BeginInit();
+			this.MenuPanel.SuspendLayout();
 			this.GamePanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.Canvas)).BeginInit();
+			this.LevelPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// timer
 			// 
 			this.timer.Interval = 1000;
 			this.timer.Tick += new System.EventHandler(this.Timer_Tick);
-			// 
-			// GamePanel
-			// 
-			this.GamePanel.BackColor = System.Drawing.Color.Transparent;
-			this.GamePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.GamePanel.Controls.Add(this.ScoreLabel);
-			this.GamePanel.Controls.Add(this.GameOverlabel);
-			this.GamePanel.Controls.Add(this.RulesLabel);
-			this.GamePanel.Controls.Add(this.Canvas);
-			this.GamePanel.Location = new System.Drawing.Point(0, 0);
-			this.GamePanel.Margin = new System.Windows.Forms.Padding(0);
-			this.GamePanel.Name = "GamePanel";
-			this.GamePanel.Size = new System.Drawing.Size(1015, 506);
-			this.GamePanel.TabIndex = 5;
-			this.GamePanel.Visible = false;
 			// 
 			// ScoreLabel
 			// 
@@ -100,24 +87,11 @@
 			this.RulesLabel.Size = new System.Drawing.Size(0, 20);
 			this.RulesLabel.TabIndex = 3;
 			// 
-			// Canvas
-			// 
-			this.Canvas.BackColor = System.Drawing.Color.Transparent;
-			this.Canvas.BackgroundImage = global::PPE__Lab_5__.Properties.Resources.grass1;
-			this.Canvas.Location = new System.Drawing.Point(8, 5);
-			this.Canvas.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-			this.Canvas.Name = "Canvas";
-			this.Canvas.Size = new System.Drawing.Size(781, 496);
-			this.Canvas.TabIndex = 0;
-			this.Canvas.TabStop = false;
-			this.Canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.Canvas_Paint);
-			// 
 			// MenuPanel
 			// 
 			this.MenuPanel.BackColor = System.Drawing.Color.Transparent;
 			this.MenuPanel.BackgroundImage = global::PPE__Lab_5__.Properties.Resources.Menu;
 			this.MenuPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.MenuPanel.Controls.Add(this.GamePanel);
 			this.MenuPanel.Controls.Add(this.StartBtn);
 			this.MenuPanel.Location = new System.Drawing.Point(0, 0);
 			this.MenuPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -140,6 +114,33 @@
 			this.StartBtn.Text = "Start";
 			this.StartBtn.UseVisualStyleBackColor = false;
 			this.StartBtn.Click += new System.EventHandler(this.StartBtn_Click);
+			// 
+			// GamePanel
+			// 
+			this.GamePanel.BackColor = System.Drawing.Color.Transparent;
+			this.GamePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.GamePanel.Controls.Add(this.GameOverlabel);
+			this.GamePanel.Controls.Add(this.ScoreLabel);
+			this.GamePanel.Controls.Add(this.RulesLabel);
+			this.GamePanel.Controls.Add(this.Canvas);
+			this.GamePanel.Location = new System.Drawing.Point(0, 0);
+			this.GamePanel.Margin = new System.Windows.Forms.Padding(0);
+			this.GamePanel.Name = "GamePanel";
+			this.GamePanel.Size = new System.Drawing.Size(1015, 506);
+			this.GamePanel.TabIndex = 5;
+			this.GamePanel.Visible = false;
+			// 
+			// Canvas
+			// 
+			this.Canvas.BackColor = System.Drawing.Color.Transparent;
+			this.Canvas.BackgroundImage = global::PPE__Lab_5__.Properties.Resources.grass1;
+			this.Canvas.Location = new System.Drawing.Point(8, 5);
+			this.Canvas.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+			this.Canvas.Name = "Canvas";
+			this.Canvas.Size = new System.Drawing.Size(781, 496);
+			this.Canvas.TabIndex = 0;
+			this.Canvas.TabStop = false;
+			this.Canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.Canvas_Paint);
 			// 
 			// LevelPanel
 			// 
@@ -225,11 +226,11 @@
 			this.Text = "Snake";
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
 			this.MenuPanel.ResumeLayout(false);
-			this.LevelPanel.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.Canvas)).EndInit();
 			this.GamePanel.ResumeLayout(false);
+			this.GamePanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.Canvas)).EndInit();
+			this.LevelPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
         }
 
@@ -247,7 +248,6 @@
 		private System.Windows.Forms.Button MediumLvlBtn;
 		private System.Windows.Forms.Button BasicLvlBtn;
 		private System.Windows.Forms.Panel GamePanel;
-		private System.Windows.Forms.Button button1;
 	}
 }
 
